@@ -36,7 +36,6 @@ Falcon is a modern Next.js marketing website for an AI development company that 
 - Add dedicated case studies and stronger proof elements
 - Refine motion with scroll-triggered interactions if a library is introduced
 
-
 ## Cloudflare deployment
 This repository is preconfigured for Cloudflare Workers with OpenNext.
 
