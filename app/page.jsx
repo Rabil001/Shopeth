@@ -10,7 +10,7 @@ import { CTASection } from '@/components/sections/home/CTASection';
 
 export default function HomePage() {
   return (
-    <>
+    <div className="home-page">
       <HomeHero />
       <PositioningStrip />
       <ChallengeSection />
@@ -20,6 +20,6 @@ export default function HomePage() {
       <ProcessPreview />
       <WhyFalcon />
       <CTASection />
-    </>
+    </div>
   );
 }
