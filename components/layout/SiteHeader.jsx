@@ -4,6 +4,11 @@ import { navigation } from '@/lib/navigation';
 export function SiteHeader() {
   return (
     <header className="site-header">
+      <div className="announcement-bar">
+        <div className="container announcement-inner">
+          <p>Built for business clarity. See how.</p>
+        </div>
+      </div>
       <div className="container header-inner">
         <Link className="brand-mark" href="/">
           <span className="brand-orb" aria-hidden="true" />
