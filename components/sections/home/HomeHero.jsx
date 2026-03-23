@@ -1,5 +1,14 @@
 import Link from 'next/link';
 
+const tickerItems = [
+  { icon: 'fa-aws', label: 'AWS' },
+  { icon: 'fa-behance', label: 'Behance' },
+  { icon: 'fa-bitbucket', label: 'Bitbucket' },
+  { icon: 'fa-deezer', label: 'Deezer' },
+  { icon: 'fa-discord', label: 'Discord' },
+  { icon: 'fa-grav', label: 'Grav' },
+];
+
 export function HomeHero() {
   return (
     <section className="hero-section">
@@ -16,6 +25,7 @@ export function HomeHero() {
       <div className="hero-overlay" />
       <div className="container hero-content">
         <h1>Custom AI solutions built around your business.</h1>
+        <div className="hero-divider" aria-hidden="true" />
         <p className="hero-copy">
           Falcon helps businesses adopt AI by understanding their priorities first, defining the right goal, and delivering tailored systems with long-term support.
         </p>
@@ -26,6 +36,16 @@ export function HomeHero() {
           <Link className="button button-secondary" href="/services">
             Explore services
           </Link>
+        </div>
+        <div className="hero-ticker" aria-label="Featured platforms">
+          <div className="hero-ticker-track">
+            {[...tickerItems, ...tickerItems].map((item, index) => (
+              <div className="hero-ticker-item" key={`${item.label}-${index}`}>
+                <i aria-hidden="true" className={`fa-brands ${item.icon}`} />
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -125,6 +125,10 @@ main {
   background: #000;
 }
 
+.nav-band {
+  background: transparent;
+}
+
 .announcement-inner {
   min-height: var(--announcement-height);
   display: flex;
@@ -154,14 +158,14 @@ main {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   min-height: var(--nav-height);
-  padding: 1rem 0;
+  padding: 0.85rem 0;
 }
 
 .brand-mark {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
 }
@@ -185,8 +189,13 @@ main {
 .nav-list {
   display: flex;
   justify-content: center;
-  gap: 1.2rem;
+  gap: 2.5rem;
   color: #fff;
+}
+
+.nav-list a {
+  font-size: 0.98rem;
+  font-weight: 500;
 }
 
 .nav-list a:hover,
@@ -253,7 +262,7 @@ main {
 }
 
 .hero-overlay {
-  background: linear-gradient(180deg, rgba(6, 8, 22, 0.14) 0%, rgba(6, 8, 22, 0.36) 58%, rgba(6, 8, 22, 0.72) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.44) 0%, rgba(0, 0, 0, 0.58) 58%, rgba(0, 0, 0, 0.84) 100%);
 }
 
 .hero-content,
@@ -289,6 +298,7 @@ h1 {
   font-size: clamp(3rem, 6vw, 5.75rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
+  font-weight: 500;
   margin-bottom: 1.5rem;
 }
 
@@ -326,7 +336,15 @@ p {
 .hero-copy {
   color: #fff;
   font-family: 'Google Sans', 'Product Sans', Arial, Helvetica, sans-serif;
-  font-weight: 300;
+  font-weight: 200;
+  max-width: 34rem;
+}
+
+.hero-divider {
+  width: min(42rem, 100%);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.8);
+  margin: 0 0 1.75rem;
 }
 
 .surface-light .section-heading p,
@@ -364,11 +382,13 @@ p {
 }
 
 .hero-actions .button {
-  border-radius: 7px;
+  border-radius: 999px;
 }
 
 .site-header .button {
-  border-radius: 7px;
+  border-radius: 999px;
+  padding: 0.72rem 1.5rem;
+  font-size: 0.92rem;
 }
 
 .hero-actions .button-primary,
@@ -377,6 +397,44 @@ p {
   border-color: #e2e4df;
   color: #0f172a;
   box-shadow: none;
+}
+
+.hero-ticker {
+  margin-top: 2.25rem;
+  width: min(56rem, 100%);
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.hero-ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 2.75rem;
+  width: max-content;
+  padding: 1rem 0;
+  animation: heroTicker 24s linear infinite;
+}
+
+.hero-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.hero-ticker-item i {
+  font-size: 1.3rem;
+}
+
+.hero-ticker-item span {
+  font-size: 0.98rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 .positioning-strip {
@@ -593,6 +651,15 @@ p {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes heroTicker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 1.375rem));
   }
 }
 
