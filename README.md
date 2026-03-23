@@ -36,7 +36,6 @@ Falcon is a modern Next.js marketing website for an AI development company that 
 - Add dedicated case studies and stronger proof elements
 - Refine motion with scroll-triggered interactions if a library is introduced
 
-
 ## Cloudflare deployment
 This repository is preconfigured for Cloudflare Workers with OpenNext.
 
@@ -45,7 +44,6 @@ This repository is preconfigured for Cloudflare Workers with OpenNext.
 - `wrangler.jsonc`: defines the Worker entrypoint, assets binding, and `nodejs_compat` flag.
 - `npm run preview`: builds and previews the app in the Workers runtime.
 - `npm run deploy`: builds with OpenNext and deploys with Wrangler.
-
 
 ## Git push helper
 - `npm run ship` stages all current changes, creates a git commit with the default message `chore: update Falcon site`, and pushes the branch.
