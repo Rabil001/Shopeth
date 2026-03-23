@@ -1,3 +1,36 @@
+@font-face {
+  font-family: 'Google Sans';
+  src:
+    local('Google Sans'),
+    local('GoogleSans-Regular'),
+    local('Product Sans'),
+    local('ProductSans-Regular');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src:
+    local('Google Sans Medium'),
+    local('GoogleSans-Medium'),
+    local('Product Sans Medium'),
+    local('ProductSans-Medium');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src:
+    local('Google Sans Bold'),
+    local('GoogleSans-Bold'),
+    local('Product Sans Bold'),
+    local('ProductSans-Bold');
+  font-weight: 700;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,7 +63,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Google Sans', 'Product Sans', Arial, Helvetica, sans-serif;
   background:
     radial-gradient(circle at top, rgba(86, 184, 255, 0.18), transparent 30%),
     linear-gradient(180deg, #04050c 0%, #0a0f1d 100%);
@@ -142,9 +175,10 @@ main {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  padding: 0.9rem 1.35rem;
+  padding: 0.65rem 1.05rem;
   border: 1px solid transparent;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 500;
   transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
 }
 
@@ -153,14 +187,14 @@ main {
 }
 
 .button-primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #fff;
-  box-shadow: var(--shadow-glow);
+  background: #e2e4df;
+  color: #0f172a;
+  box-shadow: none;
 }
 
 .button-secondary {
-  border-color: rgba(84, 96, 121, 0.35);
-  background: rgba(255, 255, 255, 0.7);
+  border-color: #e2e4df;
+  background: #e2e4df;
   color: var(--text-dark);
 }
 
@@ -214,7 +248,9 @@ main {
 }
 
 .hero-section .container.hero-content {
-  width: min(1280px, calc(100% - 1rem));
+  width: min(1280px, calc(100% - 40px));
+  margin-left: 40px;
+  margin-right: auto;
 }
 
 h1,
@@ -262,6 +298,12 @@ p {
   color: var(--muted-dark);
 }
 
+.hero-copy {
+  color: #fff;
+  font-family: 'Google Sans', 'Product Sans', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
 .surface-light .section-heading p,
 .surface-light .faq-card p,
 .surface-light .timeline-copy p:last-child,
@@ -302,9 +344,9 @@ p {
 
 .hero-actions .button-primary,
 .hero-actions .button-secondary {
-  background: #fe551c;
-  border-color: #fe551c;
-  color: #fff;
+  background: #e2e4df;
+  border-color: #e2e4df;
+  color: #0f172a;
   box-shadow: none;
 }
 
@@ -553,6 +595,11 @@ p {
 
   .hero-content {
     padding: calc(var(--header-height) + 2rem) 0 3rem;
+  }
+
+  .hero-section .container.hero-content {
+    width: calc(100% - 20px);
+    margin-left: 20px;
   }
 
   .hero-actions {

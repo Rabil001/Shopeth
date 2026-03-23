@@ -15,7 +15,6 @@ export function HomeHero() {
       </video>
       <div className="hero-overlay" />
       <div className="container hero-content">
-        <p className="eyebrow">AI strategy. Custom development. Real implementation.</p>
         <h1>Custom AI solutions built around your business.</h1>
         <p className="hero-copy">
           Falcon helps businesses adopt AI by understanding their priorities first, defining the right goal, and delivering tailored systems with long-term support.
