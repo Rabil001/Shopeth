@@ -44,3 +44,8 @@ This repository is preconfigured for Cloudflare Workers with OpenNext.
 - `wrangler.jsonc`: defines the Worker entrypoint, assets binding, and `nodejs_compat` flag.
 - `npm run preview`: builds and previews the app in the Workers runtime.
 - `npm run deploy`: builds with OpenNext and deploys with Wrangler.
+
+## Git push helper
+- `npm run ship` stages all current changes, creates a git commit with the default message `chore: update Falcon site`, and pushes the branch.
+- `npm run ship -- "your commit message"` does the same with a custom commit message.
+- This only triggers a Cloudflare update if Cloudflare is already connected to the pushed branch and auto-deploys on git pushes.
