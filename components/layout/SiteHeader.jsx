@@ -12,7 +12,6 @@ export function SiteHeader() {
       <div className="nav-band">
         <div className="container header-inner">
           <Link className="brand-mark" href="/">
-            <span className="brand-orb" aria-hidden="true" />
             Falcon
           </Link>
           <nav aria-label="Primary navigation">
@@ -24,9 +23,14 @@ export function SiteHeader() {
               ))}
             </ul>
           </nav>
-          <Link className="button button-primary" href="/contact">
-            Get started
-          </Link>
+          <div className="header-actions-wrapper">
+            <Link className="nav-login-link" href="/login">
+              Log in
+            </Link>
+            <Link className="button button-primary" href="/contact">
+              Get started
+            </Link>
+          </div>
         </div>
       </div>
     </header>

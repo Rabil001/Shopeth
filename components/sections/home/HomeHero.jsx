@@ -27,14 +27,14 @@ export function HomeHero() {
         <h1>Custom AI solutions built around your business.</h1>
         <div className="hero-divider" aria-hidden="true" />
         <p className="hero-copy">
-          Falcon helps businesses adopt AI by understanding their priorities first, defining the right goal, and delivering tailored systems with long-term support.
+          Tailored AI systems built for your business goals.
         </p>
         <div className="hero-actions">
           <Link className="button button-primary" href="/contact">
             Book a call
           </Link>
-          <Link className="button button-secondary" href="/services">
-            Explore services
+          <Link className="button button-secondary" href="/about">
+            Why we build Falcon
           </Link>
         </div>
         <div className="hero-ticker" aria-label="Featured platforms">
