@@ -129,6 +129,11 @@ main {
   left: 0;
   width: 100%;
   z-index: 60;
+  transition: background 300ms ease;
+}
+
+.site-header.is-scrolled .announcement-bar {
+  background: #000;
 }
 
 .nav-band {
@@ -255,9 +260,15 @@ main {
 }
 
 .button-secondary-dark {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--border-dark);
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
   color: var(--text-light);
+  padding: 0.85rem 1.75rem;
+}
+
+.button-secondary-dark:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .hero-section,
@@ -535,47 +546,110 @@ p {
   padding-bottom: 8rem;
 }
 
+.challenge-section .container {
+  width: min(1280px, calc(100% - 40px)) !important;
+  margin-left: 40px !important;
+  margin-right: auto !important;
+  padding: 0 !important;
+}
+
 .challenge-header-left {
   text-align: left;
-  max-width: 54rem;
+  max-width: 64rem;
   margin-bottom: 4rem;
 }
 
 .challenge-header-left h2 {
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  margin-bottom: 1.5rem;
-  font-weight: 400;
+  font-size: clamp(2rem, 3.5vw, 3.3rem) !important;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.animated-heading span {
+  display: inline-block;
+  opacity: 0.25;
+  transition: opacity 800ms ease;
+}
+
+.animated-heading span.active {
+  opacity: 1;
 }
 
 .large-p {
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 2vw, 1.6rem) !important;
   line-height: 1.4;
-  color: var(--muted-dark);
+  font-weight: 200 !important;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 58rem;
+  transition: opacity 800ms ease;
 }
 
 .challenge-visual-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 1.5rem;
   margin-bottom: 8rem;
+  height: 380px;
 }
 
 .challenge-visual-item {
-  aspect-ratio: 4 / 3;
+  flex: 1;
   border-radius: 24px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.05);
+  transition: flex 800ms cubic-bezier(0.4, 0, 0.2, 1), opacity 800ms ease;
+  position: relative;
+}
+
+.challenge-visual-item.active {
+  flex: 3.5;
 }
 
 .challenge-visual-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 600ms ease;
 }
 
-.challenge-visual-item:hover img {
-  transform: scale(1.05);
+.approach-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.approach-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.approach-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.approach-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    #000 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    #000 100%
+  );
+}
+
+.approach-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .challenge-split-header {
@@ -851,6 +925,26 @@ p {
   .challenge-split-header {
     gap: 1.5rem;
   }
+
+  .challenge-section .container {
+    width: calc(100% - 40px) !important;
+    margin-left: 20px !important;
+    margin-right: auto !important;
+  }
+
+  .challenge-visual-grid {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .challenge-visual-item {
+    height: 300px;
+    flex: none;
+  }
+
+  .challenge-visual-item.active {
+    flex: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -870,5 +964,102 @@ p {
 
   .hero-actions {
     flex-direction: column;
+  }
+}
+
+/* Approach Card Specific Design */
+.approach-section .card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 12rem;
+}
+
+.approach-section .section-heading p {
+  color: #fff;
+  font-size: 1.45rem;
+  line-height: 1.4;
+  max-width: 42rem;
+  opacity: 0.9;
+}
+
+.approach-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  height: 240px;
+  transition: transform 300ms ease;
+}
+
+.approach-card:hover {
+  transform: translateY(-4px);
+}
+
+.approach-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.approach-card-title-group h3 {
+  color: #000;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.approach-card-title-group p {
+  color: #4a4a4a;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  margin-bottom: 0;
+  max-width: 90%;
+}
+
+.approach-card-icon {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.approach-card-icon i {
+  color: #000;
+  font-size: 0.85rem;
+}
+
+.approach-card-visual {
+  flex: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.03) 100%);
+  border-radius: 12px;
+  margin-top: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.visual-element {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  height: 75%;
+  background: #fff;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -6px 20px rgba(0,0,0,0.02);
+}
+
+@media (max-width: 1024px) {
+  .approach-section .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

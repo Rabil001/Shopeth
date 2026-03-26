@@ -1,31 +1,53 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export function ChallengeSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % 3);
+    }, 3000); // Change every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="section surface-brand challenge-section">
       <div className="container">
         {/* Top Row: Left-aligned Header + 3 Visuals */}
         <div className="challenge-top">
           <div className="challenge-header-left">
-            <h2>Many businesses want AI, but struggle to connect it to real priorities.</h2>
+            <h2 className="animated-heading">
+              <span className={activeIndex === 0 ? 'active' : ''}>
+                Many businesses want AI,
+              </span>{' '}
+              <span className={activeIndex === 1 ? 'active' : ''}>
+                but struggle to connect it
+              </span>{' '}
+              <span className={activeIndex === 2 ? 'active' : ''}>
+                to real priorities.
+              </span>
+            </h2>
             <p className="large-p">
               Adoption fails when the solution comes before the business goal. Falcon begins with clarity so the system you build actually fits your operations.
             </p>
           </div>
           <div className="challenge-visual-grid">
-            <div className="challenge-visual-item">
+            <div className={`challenge-visual-item ${activeIndex === 0 ? 'active' : ''}`}>
               <img
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800"
                 alt="Collaborative AI Strategy"
               />
             </div>
-            <div className="challenge-visual-item">
+            <div className={`challenge-visual-item ${activeIndex === 1 ? 'active' : ''}`}>
               <img
                 src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800"
                 alt="Custom AI Development"
               />
             </div>
-            <div className="challenge-visual-item">
+            <div className={`challenge-visual-item ${activeIndex === 2 ? 'active' : ''}`}>
               <img
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
                 alt="Enterprise Implementation"
